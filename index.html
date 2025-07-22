@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Geva Paints | אמנות בהתאמה אישית</title>
+  <meta name="description" content="Geva Paints - ציורים בהתאמה אישית לקירות, קנבס ועגלות ילדים.">
+  <meta name="keywords" content="ציור קיר, קנבס, עיצוב, אומנות בהתאמה אישית, Geva Paints">
+  <meta property="og:title" content="Geva Paints">
+  <meta property="og:description" content="אמנות שמשנה את החלל שלכם">
+  <meta property="og:image" content="media/hero.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+    body { font-family:'Rubik',sans-serif; background:#f4f9ff; color:#222; }
+
+    header {
+      position:sticky; top:0; background:#003366; padding:1rem 2rem;
+      display:flex; align-items:center; justify-content:space-between; z-index:100;
+      flex-wrap:wrap;
+    }
+    .logo {
+      color:#fff; font-size:1.5rem; font-weight:700;
+      text-decoration:none;
+    }
+    nav { display:flex; gap:1.5rem; flex-wrap:wrap; justify-content:center; }
+    nav a {
+      color:#fff; text-decoration:none; font-weight:500; position:relative; transition:color .3s;
+    }
+    nav a::after {
+      content:''; position:absolute; left:0; bottom:-5px; width:0; height:3px; background:#ffcb05;
+      transition:width .3s;
+    }
+    nav a:hover::after, nav a:focus::after { width:100%; }
+    nav a:hover, nav a:focus { color:#ffcb05; }
+    .header-icons { display:flex; gap:1rem; }
+    .header-icons a {
+      color:#fff; font-size:1.3rem; transition:color .3s;
+    }
+    .header-icons a:hover { color:#ffcb05; }
+
+    .hero {
+      position:relative; height:70vh; overflow:hidden;
+    }
+    .hero video {
+      width:100%; height:100%; object-fit:cover; filter:brightness(0.5);
+    }
+    .hero .overlay { position:absolute; inset:0; background:rgba(0,0,0,0.4); }
+    .hero-text {
+      position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      color:#fff; text-align:center; max-width:600px;
+    }
+    .hero-text h1 { font-size:2.5rem; margin-bottom:.5rem; }
+    .hero-text p { font-size:1.2rem; }
+
+    .section { padding:4rem 2rem; max-width:1200px; margin:auto; }
+    .section h2 {
+      text-align:center; font-weight:500; margin-bottom:2rem; position:relative;
+    }
+    .section h2::after {
+      content:''; display:block; width:180px; height:4px; background:#003366; margin:0.5rem auto 0;
+    }
+    .gallery {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem;
+    }
+    .gallery img {
+      width:100%; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.1);
+      transition:transform .3s;
+    }
+    .gallery img:hover {
+      transform:scale(1.03); box-shadow:0 6px 20px rgba(0,0,0,0.2);
+    }
+.logos-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.logos-row img {
+  max-height: 130px; /* הקטנת גובה */
+  object-fit: contain;
+  cursor: default;
+  transition: transform 0.3s ease;
+  opacity: 0.85;
+}
+
+.logos-row {
+  display: flex;
+  justify-content: center; /* מרכז את כל הלוגואים */
+  gap: 30px; /* רווח בין הלוגואים */
+  flex-wrap: nowrap; /* לא לשבור שורה */
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.logos-row img {
+  max-height: 60px; /* או גובה אחר שתרצה */
+  object-fit: contain;
+  background: transparent;
+  mix-blend-mode: multiply; /* יגרום להשתלב יפה על רקע בהיר */
+  transition: transform 0.3s ease;
+  opacity: 0.9;
+}
+
+.logos-row img {
+  max-height: 170px; /* גובה אחיד ללוגואים */
+  object-fit: contain;
+  cursor: default;
+  transition: transform 0.3s ease;
+}
+
+.logos-row img:hover {
+  transform: scale(1.1); /* אפקט קל בהקפצה כשמרחפים */
+}
+
+.logos-row img:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+h3 {
+  text-align: center;
+  margin: 0 auto;
+}
+
+    .logo-carousel {
+      overflow: hidden;
+      background-color: #fff;
+      padding: 2rem 0;
+      direction: ltr;
+    }
+    .logos-track {
+      display: flex;
+      animation: scroll-logos 25s linear infinite;
+      gap: 2rem;
+    }
+    .logos-track img {
+      height: 80px; width: 80px; object-fit: cover;
+      border-radius: 50%; background:white;
+    }
+    @keyframes scroll-logos {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .testimonials {
+      background:#003366; color:#fff; padding:4rem 2rem; text-align:center;
+    }
+    .testimonial-list {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1rem;
+    }
+    .testimonial {
+      background:#eef2f8; color:#003366; padding:1.5rem;
+      border-radius:8px; font-style:italic;
+    }
+    .testimonial span {
+      display:block; margin-top:1rem; font-weight:700;
+    }
+
+    footer {
+      background:#003366; color:#fff; text-align:center; padding:3rem 1rem;
+    }
+    footer p { margin:0.3rem 0; }
+    footer a { color:#ffcb05; text-decoration:none; }
+
+    #whatsapp-link {
+      position:fixed; bottom:20px; left:20px;
+      background:#25D366; color:#fff;
+      padding:15px; border-radius:50%; font-size:24px;
+      z-index:1000; box-shadow:0 4px 12px rgba(0,0,0,0.2);
+      display:flex; align-items:center; justify-content:center;
+    }
+
+    @media(max-width:768px) {
+      .hero-text h1 { font-size:2rem; }
+      .hero-text p { font-size:1rem; }
+      header { flex-direction:column; gap:1rem; }
+      nav {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+      }
+      nav a {
+        padding: 0.5rem 0;
+        display: block;
+        font-size: 1.1rem;
+      }
+      .logos-row {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .logos-row img {
+        max-height: 90px !important;
+      }
+    }
+
+.gallery-hover {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.gallery-hover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: 0.4s ease-in-out;
+}
+
+.gallery-hover .overlay-text {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: opacity 0.3s ease-in-out;
+  text-align: center;
+}
+
+.gallery-hover:hover img {
+  filter: brightness(0.7);
+  transform: scale(1.05);
+}
+
+.gallery-hover:hover .overlay-text {
+  opacity: 1;
+}
+.logos-title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.logos-title h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+  #testimonials h2 {
+    font-size: 1.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="#home" class="logo">Geva Paints</a>
+  <nav>
+    <a href="#home"><i class="fas fa-home"></i> בית</a>
+    <a href="#gallery">יצירות</a>
+    <a href="#types">סוגי ציורים</a>
+    <a href="#testimonials">המלצות</a>
+    <a href="#contact">צור קשר</a>
+  </nav>
+  <div class="header-icons">
+    <a href="https://instagram.com/geva_paints" target="_blank" aria-label="אינסטגרם"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/972528139555" target="_blank" aria-label="וואטסאפ"><i class="fab fa-whatsapp"></i></a>
+    <a href="tel:0528139555" aria-label="התקשר לטלפון 0528139555"><i class="fas fa-phone"></i></a>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <video autoplay muted loop poster="media/hero.jpg">
+    <source src="media/hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+  <div class="hero-text">
+    <h1>אמנות שמשנה את החלל שלכם</h1>
+    <p>Geva Paints – אמנות בהתאמה אישית לבית ולעסק, עם נוכחות וסטייל ייחודי.</p>
+  </div>
+
+</section>
+<section class="section" id="types">
+  <h2>סוגי ציורים</h2>
+  <div class="gallery">
+    <div class="gallery-hover">
+      <img src="media/canvas11.jpg" alt="ציור קנבס מודרני">
+      <div class="overlay-text">ציור על קנבסים</div>
+  <h3>קנבסים</h3>
+    </div>
+    <div class="gallery-hover">
+      <img src="media/wall1.jpg" alt="ציור קיר דקורטיבי">
+      <div class="overlay-text">ציור על קירות</div>
+ <h3>קירות</h3>
+    </div>
+    <div class="gallery-hover">
+      <img src="media/wall12.jpg" alt="ציור קיר בסלון">
+      <div class="overlay-text">ציור על מגרשים</div>
+ <h3>מגרשים</h3>
+    </div>
+    <div class="gallery-hover">
+      <img src="media/stroller1.jpg" alt="ציור על עגלת תינוק">
+      <div class="overlay-text">ציור על עגלות</div>
+ <h3>עגלות</h3>
+    </div>
+  </div>
+
+</section>
+
+<!-- קטע הלוגואים החדש -->
+<section class="section" id="logos">
+  <h2>עיצוב גרפי לוגו לעסק</h2>
+  <div class="logos-row">
+    <img src="media/koh-samui.png" alt="Koh Samui" />
+  <h3>בית נופש</h3>
+  <img src="media/acaili.png" alt="Acaili" />
+ <h3>עגלת אסאי</h3>
+   <img src="media/butterfly-studio.png" alt="Butterfly Studio" />
+   <h3>מותג בגדים</h3>
+ <img src="media/bencheese.png" alt="Bencheese" />
+ <h3>עגלת גבינות</h3>
+ </div>
+</section>
+
+<section class="section" id="gallery">
+  <h2>היצירות שלנו</h2>
+  <div class="gallery">
+    <img src="media/canvas2.jpg" alt="ציור קנבס בצבעי מים">
+    <img src="media/wall3.jpg" alt="ציור קיר גדול">
+    <img src="media/wall2.jpg" alt="עיצוב קיר מודרני">
+    <img src="media/canvas4.jpg" alt="ציור קנבס עם צורות גיאומטריות">
+    <img src="media/wall16.jpg" alt="ציור גרפיטי קיר">
+    <img src="media/stroller2.jpg" alt="ציור מותאם לעגלת תינוק">
+    <img src="media/canvas3.jpg" alt="ציור מופשט לקיר">
+    <img src="media/wall19.jpg" alt="עיצוב קיר אמנותי">
+    <img src="media/wall6.jpg" alt="ציור נוף לקיר">
+    <img src="media/wall14.jpg" alt="קיר בעיצוב אמנות רחוב">
+    <img src="media/wall15.jpg" alt="ציור קיר לחדר ילדים">
+    <img src="media/wall13.jpg" alt="ציור קיר בסגנון טבע">
+    <img src="media/wall9.jpg" alt="ציור קיר הנצחת חייל">
+    <img src="media/wall4.jpg" alt="קיר בעיצוב גרפיטי רחוב">
+    <img src="media/wall7.jpg" alt="ציור קיר הנצחת לוחם במדים">
+    <img src="media/wall17.jpg" alt="ציור קיר חופשה פלמינגו">
+    <img src="media/wall5.jpg" alt="קיר בעיצוב גרפיטי פרפר">
+    <img src="media/wall8.jpg" alt="ציור קיר דמות עם כובע">
+    <img src="media/wall20.jpg" alt="ציור קיר פסל החירות">
+    <img src="media/wall18.jpg" alt="ציור קיר לוחם על מדים">
+</div>
+
+</section>
+<section class="section logos-title">
+  <h2>בין לקוחותינו</h2>
+</section>
+
+<section class="logo-carousel" aria-label="לקוחות שעבדנו איתם">
+  <div class="logos-track">
+    <img src="media/koh-samui.png" alt="Koh Samui">
+    <img src="media/acaili.png" alt="Acaili">
+    <img src="media/Roei-Therapy.png" alt="Roei Therapy">
+    <img src="media/butterfly-studio.png" alt="Butterfly Studio">
+    <img src="media/bencheese.png" alt="Bencheese">
+    <img src="media/gezer.png" alt="Gezer">
+    <!-- לולאה חלקה -->
+    <img src="media/koh-samui.png" alt="Koh Samui">
+    <img src="media/acaili.png" alt="Acaili">
+    <img src="media/Roei-Therapy.png" alt="Roei Therapy">
+    <img src="media/butterfly-studio.png" alt="Butterfly Studio">
+    <img src="media/bencheese.png" alt="Bencheese">
+    <img src="media/gezer.png" alt="Gezer">
+   <!-- לולאה חלקה -->
+    <img src="media/koh-samui.png" alt="Koh Samui">
+    <img src="media/acaili.png" alt="Acaili">
+    <img src="media/Roei-Therapy.png" alt="Roei Therapy">
+    <img src="media/butterfly-studio.png" alt="Butterfly Studio">
+    <img src="media/bencheese.png" alt="Bencheese">
+    <img src="media/gezer.png" alt="Gezer">
+ <!-- לולאה חלקה -->
+
+    <img src="media/koh-samui.png" alt="Koh Samui">
+    <img src="media/acaili.png" alt="Acaili">
+    <img src="media/Roei-Therapy.png" alt="Roei Therapy">
+    <img src="media/butterfly-studio.png" alt="Butterfly Studio">
+    <img src="media/bencheese.png" alt="Bencheese">
+    <img src="media/gezer.png" alt="Gezer">
+ <!-- לולאה חלקה -->
+    <img src="media/koh-samui.png" alt="Koh Samui">
+    <img src="media/acaili.png" alt="Acaili">
+    <img src="media/Roei-Therapy.png" alt="Roei Therapy">
+    <img src="media/butterfly-studio.png" alt="Butterfly Studio">
+    <img src="media/bencheese.png" alt="Bencheese">
+    <img src="media/gezer.png" alt="Gezer">
+</div>
+
+<section class="testimonials" id="testimonials">
+  <h2>מה הלקוחות שלנו אומרים</h2>
+  <div class="testimonial-list">
+    <div class="testimonial">
+      <img src="media/message-yosi.jpg" alt="הודעת יוסי" style="max-width: 100%; border-radius: 8px;" />
+      <span>– מועצה אזורית גזר</span>
+    </div>
+    <div class="testimonial">
+      <img src="media/message-eyal.jpg" alt="הודעת אייל" style="max-width: 100%; border-radius: 8px;" />
+      <span>– שי בנצ'יז</span>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <h2>צור קשר</h2>
+  <p>📞 <a href="tel:0528139555">0528139555</a></p>
+  <p>✉️ <a href="mailto:gevasofer1234@gmail.com">gevasofer1234@gmail.com</a></p>
+  <p>📸 <a href="https://instagram.com/geva_paints" target="_blank">@geva_paints</a></p>
+  <p>📍 בית חשמונאי יונתן 16</p>
+</footer>
+
+<a id="whatsapp-link" href="https://wa.me/972528139555" target="_blank" aria-label="שלח הודעת WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+</main>
+</body>
+</html>
